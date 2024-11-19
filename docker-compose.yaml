@@ -1,0 +1,26 @@
+services:
+  api:
+    container_name: sec-api
+    build:
+      context: ./SEC-Platform
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      MONGO_URI: "mongodb://root:passwordABC123!@db:27017/SEC?authSource=admin"
+  frontend:
+    build:
+      context: ./SEC-frontend
+    ports:
+      - "8085:80"
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: SEC
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: passwordABC123!

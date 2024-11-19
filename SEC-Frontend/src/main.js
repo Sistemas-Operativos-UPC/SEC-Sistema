@@ -1,0 +1,186 @@
+import { createApp } from 'vue'
+import PrimeVue from 'primevue/config';
+import { definePreset } from '@primevue/themes';
+import { createPinia } from 'pinia'
+import Aura from '@primevue/themes/aura';
+import './style.css'
+import 'primeicons/primeicons.css'
+import App from './App.vue'
+
+//Toast service
+import ToastService from 'primevue/toastservice';
+
+//ConfirmDialog service
+import ConfirmationService from 'primevue/confirmationservice';
+
+// My design preset
+const MyPreset = definePreset(Aura, {
+    semantic: {
+        primary: {
+            50: '{blue.50}',
+            100: '{blue.100}',
+            200: '{blue.200}',
+            300: '{blue.300}',
+            400: '{blue.400}',
+            500: '{blue.500}',
+            600: '{blue.600}',
+            700: '{blue.700}',
+            800: '{blue.800}',
+            900: '{blue.900}',
+            950: '{blue.950}'
+        },
+        colorScheme: {
+            light: {
+                primary: {
+                    color: '{blue.950}',
+                    inverseColor: '#ffffff',
+                    hoverColor: '{blue.900}',
+                    activeColor: '{blue.800}'
+                },
+                highlight: {
+                    background: '{blue.950}',
+                    focusBackground: '{blue.700}',
+                    color: '#ffffff',
+                    focusColor: '#ffffff'
+                }
+            },
+            dark: {
+                primary: {
+                    color: '{blue.50}',
+                    inverseColor: '{blue.950}',
+                    hoverColor: '{blue.100}',
+                    activeColor: '{blue.200}'
+                },
+                highlight: {
+                    background: 'rgba(250, 250, 250, .16)',
+                    focusBackground: 'rgba(250, 250, 250, .24)',
+                    color: 'rgba(255,255,255,.87)',
+                    focusColor: 'rgba(255,255,255,.87)'
+                }
+            }
+        }
+    }
+});
+
+import router from "./router/index.js";
+
+import AutoComplete from "primevue/autocomplete";
+import CascadeSelect from "primevue/cascadeselect";
+import Checkbox from "primevue/checkbox";
+import DataPicker from "primevue/datepicker";
+import FloatLabel from "primevue/floatlabel";
+import IconField from "primevue/iconfield";
+import InputIcon from 'primevue/inputicon';
+import InputGroup from "primevue/inputgroup";
+import InputGroupAddon from "primevue/inputgroupaddon";
+import InputMask from "primevue/inputmask";
+import InputNumber from "primevue/inputnumber";
+import InputText from "primevue/inputtext";
+import MultiSelect from "primevue/multiselect";
+import Password from "primevue/password";
+import Select from "primevue/select";
+import Textarea from "primevue/textarea";
+import ToggleSwitch from "primevue/toggleswitch";
+import Button from "primevue/button";
+import ButtonGroup from "primevue/buttongroup";
+import SpeedDial from "primevue/speeddial";
+import DataTable from "primevue/datatable";
+import Column from 'primevue/column';
+import Paginator from "primevue/paginator";
+import Timeline from "primevue/timeline";
+import Accordion from "primevue/accordion";
+import Card from "primevue/card";
+import Panel from "primevue/panel";
+import ScrollPanel from "primevue/scrollpanel";
+import Stepper from "primevue/stepper";
+import StepList from "primevue/steplist";
+import Step from "primevue/step";
+import StepItem from "primevue/stepitem";
+import StepPanels from "primevue/steppanels";
+import StepPanel from "primevue/steppanel";
+import Tabs from "primevue/tabs";
+import TabList from "primevue/tablist";
+import Tab from "primevue/tab";
+import Toolbar from "primevue/toolbar";
+import ConfirmDialog from "primevue/confirmdialog";
+import Dialog from "primevue/dialog";
+import Drawer from "primevue/drawer";
+import Tooltip from "primevue/tooltip";
+import Menu from "primevue/menu";
+import Message from "primevue/message";
+import Toast from "primevue/toast";
+import Image from "primevue/image";
+import Avatar from "primevue/avatar";
+import Badge from "primevue/badge";
+import Tag from "primevue/tag";
+import Popover from 'primevue/popover';
+
+const app = createApp(App);
+
+app.use(router);
+
+
+app.use(PrimeVue, {
+        theme: {
+            preset: MyPreset,
+            options: {
+                darkModeSelector: 'light',
+            }
+        },
+    });
+
+app.component('pv-autocomplete', AutoComplete)
+    .component('pv-cascadeselect', CascadeSelect)
+    .component('pv-checkbox', Checkbox)
+    .component('pv-datepicker', DataPicker)
+    .component('pv-floatlabel', FloatLabel)
+    .component('pv-iconfield', IconField)
+    .component('pv-inputicon', InputIcon)
+    .component('pv-inputgroup', InputGroup)
+    .component('pv-inputgroupaddon', InputGroupAddon)
+    .component('pv-inputmask', InputMask)
+    .component('pv-inputnumber', InputNumber)
+    .component('pv-inputtext', InputText)
+    .component('pv-multiselect', MultiSelect)
+    .component('pv-password', Password)
+    .component('pv-select', Select)
+    .component('pv-textarea', Textarea)
+    .component('pv-toggleswitch', ToggleSwitch)
+    .component('pv-button', Button)
+    .component('pv-buttongroup', ButtonGroup)
+    .component('pv-speeddial', SpeedDial)
+    .component('pv-datatable', DataTable)
+    .component('pv-column', Column)
+    .component('pv-paginator', Paginator)
+    .component('pv-timeline', Timeline)
+    .component('pv-accordion', Accordion)
+    .component('pv-card', Card)
+    .component('pv-panel', Panel)
+    .component('pv-scrollpanel', ScrollPanel)
+    .component('pv-stepper', Stepper)
+    .component('pv-steplist', StepList)
+    .component('pv-step', Step)
+    .component('pv-stepitem', StepItem)
+    .component('pv-steppanels', StepPanels)
+    .component('pv-steppanel', StepPanel)
+    .component('pv-tabs', Tabs)
+    .component('pv-tablist', TabList)
+    .component('pv-tab', Tab)
+    .component('pv-toolbar', Toolbar)
+    .component('pv-confirmdialog', ConfirmDialog)
+    .component('pv-dialog', Dialog)
+    .component('pv-drawer', Drawer)
+    .component('pv-tooltip', Tooltip)
+    .component('pv-menu', Menu)
+    .component('pv-message', Message)
+    .component('pv-toast', Toast)
+    .component('pv-image', Image)
+    .component('pv-avatar', Avatar)
+    .component('pv-badge', Badge)
+    .component('pv-tag', Tag)
+    .component('pv-popover', Popover)
+    .use(ToastService)
+    .use(ConfirmationService);
+app.use(createPinia());
+app.mount('#app');
+
